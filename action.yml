@@ -1,0 +1,22 @@
+name: Teleport Auth (Application Access)
+author: Gravitational, Inc.
+description: Generates credentials so that your workflow can access applications protected by Teleport.
+inputs:
+    app:
+        description: Specify the name of the application in Teleport you wish to generate credentials for.
+        required: true
+    certificate-ttl:
+        description: Specify the length that the generated credentials should be valid for. Defaults to "1h"
+        required: false
+    proxy:
+        description: Specify the address of your Teleport Proxy.
+        required: true
+    token:
+        description: Specify the Teleport token to use to join.
+        required: true
+runs:
+    using: node16
+    main: dist/index.js
+branding:
+    color: purple
+    icon: terminal
