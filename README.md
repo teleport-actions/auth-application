@@ -38,24 +38,31 @@ Pre-requisites:
 Example usage:
 
 ```yaml
-steps:
-  - name: Install Teleport
-    uses: teleport-actions/setup@v1
-    with:
-      version: 11.0.3
-  - name: Fetch application credentials
-    id: auth
-    uses: teleport-actions/auth-application@v1
-    with:
-      # Specify the publically accessible address of your Teleport proxy.
-      proxy: tele.example.com:443
-      # Specify the name of the join token for your bot.
-      token: my-github-join-token-name
-      # Specify the length of time that the generated credentials should be
-      # valid for. This is optional and defaults to "1h"
-      certificate-ttl: 1h
-      # Specify the name of the application you wish to access.
-      app: grafana-example
-  - name: Make request
-    run: curl --cert {{ steps.auth.outputs.certificate-file }} --key {{ steps.auth.outputs.key-file }} https://grafana-example.tele.example.com/api/users
+on:
+  workflow_dispatch: {}
+jobs:
+  demo-auth-application:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - name: Install Teleport
+        uses: teleport-actions/setup@v1
+        with:
+          version: 11.0.3
+      - name: Fetch application credentials
+        id: auth
+        uses: teleport-actions/auth-application@v1
+        with:
+          # Specify the publically accessible address of your Teleport proxy.
+          proxy: tele.example.com:443
+          # Specify the name of the join token for your bot.
+          token: my-github-join-token-name
+          # Specify the length of time that the generated credentials should be
+          # valid for. This is optional and defaults to "1h"
+          certificate-ttl: 1h
+          # Specify the name of the application you wish to access.
+          app: grafana-example
+      - name: Make request
+        run: curl --cert ${{ steps.auth.outputs.certificate-file }} --key ${{ steps.auth.outputs.key-file }} https://grafana-example.tele.example.com/api/users
 ```
