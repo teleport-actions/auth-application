@@ -2,6 +2,9 @@ name: Teleport Auth (Application Access)
 author: Gravitational, Inc.
 description: Generates credentials so that your workflow can access applications protected by Teleport.
 inputs:
+    anonymous-telemetry:
+        description: Enables anonymous telemetry. See https://goteleport.com/docs/machine-id/reference/telemetry/ for more information.
+        required: false
     app:
         description: Specify the name of the application in Teleport you wish to generate credentials for.
         required: true

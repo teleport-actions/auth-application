@@ -63,6 +63,10 @@ jobs:
           certificate-ttl: 1h
           # Specify the name of the application you wish to access.
           app: grafana-example
+          # Enable submission of anonymous usage telemetry to Teleport.
+          # See https://goteleport.com/docs/machine-id/reference/telemetry/ for
+          # more information.
+          anonymous-telemetry: 1
       - name: Make request
         run: curl --cert ${{ steps.auth.outputs.certificate-file }} --key ${{ steps.auth.outputs.key-file }} https://grafana-example.tele.example.com/api/users
 ```
