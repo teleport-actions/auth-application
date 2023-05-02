@@ -28,7 +28,7 @@ Pre-requisites:
 
 - Teleport 11 or above must be used.
 - Teleport binaries must already be installed in the job environment.
-- The Applicatiom you wish to access must already be connected to your Teleport
+- The Application you wish to access must already be connected to your Teleport
   cluster. See
   <https://goteleport.com/docs/application-access/getting-started/>
 - You must have created a bot with a role with access to your Application and
@@ -54,7 +54,7 @@ jobs:
         id: auth
         uses: teleport-actions/auth-application@v1
         with:
-          # Specify the publically accessible address of your Teleport proxy.
+          # Specify the publicly accessible address of your Teleport proxy.
           proxy: tele.example.com:443
           # Specify the name of the join token for your bot.
           token: my-github-join-token-name
