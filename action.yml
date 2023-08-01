@@ -8,6 +8,9 @@ inputs:
     app:
         description: Specify the name of the application in Teleport you wish to generate credentials for.
         required: true
+    ca-pins:
+        description: Specifies one or more trusted CAs to initially validate the identity of the Auth Server when connecting directly to it. This is not required for Teleport Cloud or when connecting via a Teleport Proxy
+        required: false
     certificate-ttl:
         description: Specify the length that the generated credentials should be valid for. Defaults to "1h"
         required: false
