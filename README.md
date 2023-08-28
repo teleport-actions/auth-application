@@ -12,7 +12,7 @@
 
 > Read our Documentation: <https://goteleport.com/docs/getting-started/>
 
-# `teleport-actions/auth-application`
+# `teleport-actions/auth-application@v2`
 
 `auth-application` uses Teleport Machine ID to generate credentials for
 accessing an application protected by Teleport.
@@ -26,7 +26,9 @@ The action has the following outputs:
 
 Pre-requisites:
 
-- Teleport 11 or above must be used.
+- **Teleport 14 or above must be used.** Use
+  [`teleport-actions/auth-application@v1`](https://github.com/teleport-actions/auth-application/tree/v1)
+  for compatability with older versions of Teleport.
 - Teleport binaries must already be installed in the job environment.
 - The Applicatiom you wish to access must already be connected to your Teleport
   cluster. See
@@ -49,10 +51,10 @@ jobs:
       - name: Install Teleport
         uses: teleport-actions/setup@v1
         with:
-          version: 12.1.0
+          version: 14.0.0
       - name: Fetch application credentials
         id: auth
-        uses: teleport-actions/auth-application@v1
+        uses: teleport-actions/auth-application@v2
         with:
           # Specify the publically accessible address of your Teleport proxy.
           proxy: tele.example.com:443
