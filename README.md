@@ -72,3 +72,11 @@ jobs:
       - name: Make request
         run: curl --cert ${{ steps.auth.outputs.certificate-file }} --key ${{ steps.auth.outputs.key-file }} https://grafana-example.tele.example.com/api/users
 ```
+
+## Outputs
+
+This action will output the following values:
+
+- `identity-file`: the path to the identity file.
+- `certificate-file`: the path to the client certificate.
+- `key-file`: the path to the private key for the client certificate.
