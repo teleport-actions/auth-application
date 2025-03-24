@@ -15751,7 +15751,7 @@ exports.visitAsync = visitAsync;
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"auth-application","version":"2.0.3","license":"Apache-2.0","repository":"https://github.com/teleport-actions/auth-application.git","scripts":{"build":"ncc build ./src/index.ts -o dist"},"dependencies":{"@actions/core":"^1.10.0","@actions/tool-cache":"^2.0.1"},"private":true,"devDependencies":{"@types/node":"^18.8.2"}}');
+module.exports = JSON.parse('{"name":"auth-application","version":"2.0.4","license":"Apache-2.0","repository":"https://github.com/teleport-actions/auth-application.git","scripts":{"build":"ncc build ./src/index.ts -o dist"},"dependencies":{"@actions/core":"^1.10.0","@actions/tool-cache":"^2.0.1"},"private":true,"devDependencies":{"@types/node":"^18.8.2"}}');
 
 /***/ })
 
@@ -16024,6 +16024,7 @@ async function run() {
     const configPath = await writeConfiguration(config);
     const env = baseEnvFromSharedInputs(sharedInputs, 'gha:teleport-actions/auth-application', version);
     await execute(configPath, env);
+    core.setOutput('destination-dir', destinationPath);
     core.setOutput('identity-file', external_path_default().join(destinationPath, 'identity'));
     core.setOutput('certificate-file', external_path_default().join(destinationPath, 'tlscert'));
     core.setOutput('key-file', external_path_default().join(destinationPath, 'key'));

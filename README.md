@@ -17,13 +17,6 @@
 `auth-application` uses Teleport Machine ID to generate credentials for
 accessing an application protected by Teleport.
 
-The action has the following outputs:
-
-- `certificate-file`: the path to the client certificate to use with requests to
-  the application.
-- `key-file`: the path to the private key for the client certificate to use with
-  request to the application.
-
 Pre-requisites:
 
 - **Teleport 14 or above must be used.** Use
@@ -77,6 +70,7 @@ jobs:
 
 This action will output the following values:
 
+- `destination-dir`: the path to the tbot destination folder.
 - `identity-file`: the path to the identity file.
 - `certificate-file`: the path to the client certificate.
 - `key-file`: the path to the private key for the client certificate.
