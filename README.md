@@ -19,7 +19,7 @@ accessing an application protected by Teleport.
 
 Pre-requisites:
 
-- **Teleport 14 or above must be used.** Use
+- **Teleport 16 or above must be used.** Use
   [`teleport-actions/auth-application@v1`](https://github.com/teleport-actions/auth-application/tree/v1)
   for compatability with older versions of Teleport.
 - Teleport binaries must already be installed in the job environment.
@@ -44,7 +44,10 @@ jobs:
       - name: Install Teleport
         uses: teleport-actions/setup@v1
         with:
-          version: 14.0.0
+          # specify version as "auto" and provide the address of your Teleport
+          # proxy using the "proxy" input.
+          version: auto
+          proxy: tele.example.com:443
       - name: Fetch application credentials
         id: auth
         uses: teleport-actions/auth-application@v2
