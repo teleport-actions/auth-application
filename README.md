@@ -21,11 +21,11 @@ Pre-requisites:
 
 - **Teleport 16 or above must be used.** Use
   [`teleport-actions/auth-application@v1`](https://github.com/teleport-actions/auth-application/tree/v1)
-  for compatability with older versions of Teleport.
+  for compatibility with older versions of Teleport.
 - Teleport binaries must already be installed in the job environment.
-- The Applicatiom you wish to access must already be connected to your Teleport
+- The Application you wish to access must already be connected to your Teleport
   cluster. See
-  <https://goteleport.com/docs/application-access/getting-started/>
+  <https://goteleport.com/docs/enroll-resources/application-access/getting-started/>
 - You must have created a bot with a role with access to your Application and
   created a GitHub join token that allows that bot to join.
 - A Linux based runner.
